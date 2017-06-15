@@ -1,10 +1,12 @@
 var tablaContenido = $('#listaComentarios');
 var api = {
 	url:'http://examen-laboratoria-sprint-5.herokuapp.com/topics'
-}
 
+}
+console.log(api.url);
 var cargarPagina = function() {
 	$('#mostrar-formulario').submit(crearTemas);
+	$('#buscar-temas').submit(filtrarTemas);
 	mostrarTemas();
 }
 var mostrarTemas = function(data){
@@ -45,6 +47,19 @@ var crearTemas = function(e){
 		//ocultamos el modal
 		$('#myModal').modal('hide');
 	})
+}
+var filtrarTemas = function(e){
+	e.preventDefault();
+	$.getJSON(api.url, function(tema){
+		// console.log(tema);
+		var formatoBusqueda = $('#input-buscar').val().toLowerCase();
+		var filtroContenido = tema.filter(function(contenidoT){
+		// console.log(contenidoT.content);
+		return contenidoT.content.toLowerCase().indexOf(formatoBusqueda) >= 0;
+		});
+		//recorrer el arreglo
+		imprimirTemas(filtroContenido);
+	});
 }
 
 $(document).ready(cargarPagina);
