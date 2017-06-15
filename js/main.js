@@ -61,11 +61,15 @@ var filtrarTemas = function(e){
 		// console.log(tema);
 		var formatoBusqueda = $('#input-buscar').val().toLowerCase();
 		var filtroContenido = tema.filter(function(contenidoT){
-		// console.log(contenidoT.content);
+		
 		return contenidoT.content.toLowerCase().indexOf(formatoBusqueda) >= 0;
 		});
+		tablaContenido.text('');
+		//realizo un forEach porque tengo que recorrer esa funcion
+		filtroContenido.forEach(imprimirTemas);
+		console.log(filtroContenido);
 		//recorrer el arreglo
-		imprimirTemas(filtroContenido);
+		
 	});
 }
 
