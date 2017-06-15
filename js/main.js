@@ -3,7 +3,7 @@ var api = {
 	url:'http://examen-laboratoria-sprint-5.herokuapp.com/topics'
 
 }
-console.log(api.url);
+// console.log(api.url);
 var cargarPagina = function() {
 	$('#mostrar-formulario').submit(crearTemas);
 	$('#buscar-temas').submit(filtrarTemas);
@@ -18,17 +18,24 @@ var imprimirTemas = function(tema){
 	var autorTema = tema.author_name;
 	var contenido = tema.content;
 	var respuestas = tema.responses_count;
+	var id = tema.id;
 	//crear elementos
 	var tr = $('<tr />');
+	var a = $("<a />",{
+			href : 'verTopic.html?topic_id=' + id
+	});
 	var tdAutor = $('<td />');
+	tdAutor.attr('data-id',id);
 	var tdContenido = $('<td />');
 	var tdRespuestas = $('<td />');
 	//agregar contenido
+
 	tdAutor.text(autorTema);
 	tdContenido.text(contenido);
 	tdRespuestas.text(respuestas);
 	//agregar elementos
-	tr.append(tdAutor);
+	a.append(tdAutor);
+	tr.append(a);
 	tr.append(tdContenido);
 	tr.append(tdRespuestas);
 	//agregar a la tabla
