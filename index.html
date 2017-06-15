@@ -9,6 +9,13 @@
   </head>
   <body>
       <h1>Todos los temas</h1>
+      <!-- boton  para llamar al modal -->
+      <div class="row">
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+          + Nuevo Tema
+      </button>
+      </div>
+      <!-- creacion de tabla -->
       <table class="table table-striped">
         <thead>
           <th>Autor</th>
@@ -16,13 +23,12 @@
           <th># de respuestas</th>
         </thead>
         <tbody id="listaComentarios">
-          
         </tbody>
       </table> 
-  
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <!-- fin de tabla -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
-        <form id='agregar-formulario' action="">
+        <form id='mostrar-formulario' action="#">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -33,15 +39,20 @@
                   <label for="nombre-tema">Nombre del tema :</label>
                   <input type="text" class="form-control" id="nombre-tema" placeholder="Tarea">
                 </div>
+                <div class="form-group">
+                  <label for="contenido-tema">Contenido:</label>
+                  <textarea class="form-control" id="contenido-tema" placeholder="Contenido">
+                  </textarea> 
+                </div>
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn btn-primary">+ Agregar</button>
+              <button type="submit" class="btn btn-primary">Agregar Tema</button>
             </div>
           </div>
         </form>
       </div>
-    </div>
+      </div>
     <script src='js/jquery-3.2.1.min.js'></script>
     <script src='js/bootstrap.min.js'></script>
     <script src="js/functions.js"></script>

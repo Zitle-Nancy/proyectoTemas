@@ -4,9 +4,9 @@ var api = {
 }
 
 var cargarPagina = function() {
+	$('#mostrar-formulario').submit(crearTemas);
 	mostrarTemas();
 }
-
 var mostrarTemas = function(data){
 	$.getJSON(api.url, function(tema){
 		tema.forEach(imprimirTemas);
@@ -31,10 +31,20 @@ var imprimirTemas = function(tema){
 	tr.append(tdRespuestas);
 	//agregar a la tabla
 	tablaContenido.append(tr);
-
-
-
 }
-
+var crearTemas = function(e){
+	e.preventDefault();
+	var nombreTema = $('#nombre-tema').val();
+	var contenidoTema = $('#contenido-tema').val();
+	// console.log(nombreTema + " " + contenidoTema);
+	$.post(api.url,{
+		author_name: nombreTema,
+		content: contenidoTema,
+	},function(data){
+		imprimirTemas(data);
+		//ocultamos el modal
+		$('#myModal').modal('hide');
+	})
+}
 
 $(document).ready(cargarPagina);
