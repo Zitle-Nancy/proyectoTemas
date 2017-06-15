@@ -10,21 +10,30 @@
   <body>
       <h1>Todos los temas</h1>
       <!-- boton  para llamar al modal -->
-      <div class="row">
-        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-          + Nuevo Tema
-      </button>
-      </div>
+        <div class="row">
+          <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+            + Nuevo Tema
+          </button>
+          <!-- boton  de buscar  -->
+            <div class="row div-buscar">
+              <form id="buscar-temas" class="col-lg-6">
+                <div class="input-group">
+                  <input type="search" class="form-control" id="input-buscar" placeholder="Buscar">
+                </div>
+              </form>
+            </div>
+          <!-- fin boton de buscar -->
+        </div>
       <!-- creacion de tabla -->
-      <table class="table table-striped">
-        <thead>
-          <th>Autor</th>
-          <th>Contenido</th>
-          <th># de respuestas</th>
-        </thead>
-        <tbody id="listaComentarios">
-        </tbody>
-      </table> 
+        <table class="table table-striped">
+          <thead>
+            <th>Autor</th>
+            <th>Contenido</th>
+            <th># de respuestas</th>
+          </thead>
+          <tbody id="listaComentarios">
+          </tbody>
+        </table> 
       <!-- fin de tabla -->
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
@@ -41,7 +50,7 @@
                 </div>
                 <div class="form-group">
                   <label for="contenido-tema">Contenido:</label>
-                  <textarea class="form-control" id="contenido-tema" placeholder="Contenido">
+                  <textarea class="form-control" id="contenido-tema">
                   </textarea> 
                 </div>
             </div>
