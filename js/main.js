@@ -57,20 +57,20 @@ var crearTemas = function(e){
 }
 var filtrarTemas = function(e){
 	e.preventDefault();
+	var inputBuscar = $('#input-buscar');
 	$.getJSON(api.url, function(tema){
 		// console.log(tema);
 		var formatoBusqueda = $('#input-buscar').val().toLowerCase();
 		var filtroContenido = tema.filter(function(contenidoT){
-		
 		return contenidoT.content.toLowerCase().indexOf(formatoBusqueda) >= 0;
 		});
 		tablaContenido.text('');
 		//realizo un forEach porque tengo que recorrer esa funcion
 		filtroContenido.forEach(imprimirTemas);
-		console.log(filtroContenido);
-		//recorrer el arreglo
-		
+		// console.log(filtroContenido);
+		inputBuscar.val('');
 	});
+	
 }
 
 $(document).ready(cargarPagina);
