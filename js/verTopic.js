@@ -9,11 +9,13 @@ var cargarPagina = function() {
 	mostrarTemaIndividual();
 }
 var mostrarTemaIndividual = function(data){
-	$.getJSON(api.url, function(titulo){
-		// console.log(titulo);
-		// titulo.forEach(imprimirTitulo);
-		imprimirTitulo(titulo);
-	});
+	// $.getJSON(api.url, function(titulo){
+	// 	// console.log(titulo);
+	// 	// titulo.forEach(imprimirTitulo);
+	// 	//no va un forEach porque no es arreglo es un objeto
+	// 	imprimirTitulo(titulo);
+	// });
+	$.getJSON(api.url, imprimirTitulo);
 }
 
 var imprimirTitulo = function(titulo){
